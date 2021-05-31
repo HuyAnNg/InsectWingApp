@@ -1,6 +1,4 @@
-import {BottomTabNavigationProp} from '@react-navigation/bottom-tabs';
-import {StackNavigationState} from '@react-navigation/routers';
-import {StackNavigationProp, StackScreenProps} from '@react-navigation/stack';
+import {StackScreenProps} from '@react-navigation/stack';
 import React, {memo, useCallback} from 'react';
 import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
 
@@ -38,7 +36,7 @@ const styles = StyleSheet.create({
 
 export type ScreenProps = StackScreenProps<RootStackParamList, SCREEN.Start>;
 
-const startScreenComponent = ({navigation, route}: ScreenProps) => {
+const startScreenComponent = ({navigation}: ScreenProps) => {
   const signIn = useCallback(() => {
     navigation.navigate(SCREEN.SignIn);
   }, []);

@@ -8,9 +8,9 @@ import {NavigationContainer} from '@react-navigation/native';
 
 import {Image, StyleSheet} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import { Start } from '../startScreen';
-import { SignUp } from '../components/Account/signUpScreen';
-import { SignIn } from '../components/Account/signInScreen';
+import {Start} from '../startScreen';
+import {SignUp} from '../components/Account/signUpScreen';
+import {SignIn} from '../components/Account/signInScreen';
 
 const Tab = createBottomTabNavigator();
 const RootStack = createStackNavigator<RootStackParamList>();
@@ -101,13 +101,13 @@ const styles = StyleSheet.create({
 // };
 
 export const Stack = () => {
-  return(
+  return (
     <NavigationContainer>
       <RootStack.Navigator initialRouteName={SCREEN.Start} headerMode="none">
-        <RootStack.Screen name={SCREEN.Start} component={Start}/>
-        <RootStack.Screen name={SCREEN.SignUp} component={SignUp}/>
-        <RootStack.Screen name={SCREEN.SignIn} component={SignIn}/>
+        <RootStack.Screen name={SCREEN.Start} component={Start} />
+        <RootStack.Screen name={SCREEN.SignUp} component={SignUp} />
+        <RootStack.Screen name={SCREEN.SignIn} component={SignIn} />
       </RootStack.Navigator>
-   </NavigationContainer>
-  )
-}
+    </NavigationContainer>
+  );
+};
