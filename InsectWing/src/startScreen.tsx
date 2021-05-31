@@ -1,17 +1,13 @@
+import {BottomTabNavigationProp} from '@react-navigation/bottom-tabs';
+import {StackNavigationState} from '@react-navigation/routers';
+import {StackNavigationProp, StackScreenProps} from '@react-navigation/stack';
 import React, {memo, useCallback} from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  Image,
-  TouchableOpacity,
-} from 'react-native';
+import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
 
-import {SCREEN} from '../navigation/ScreenType';
-import {ScreenProps} from './Settings/settingsScreen';
+import {RootStackParamList, SCREEN} from '../src/navigation/ScreenType';
 
 const styles = StyleSheet.create({
-  container: {flexDirection: 'column'},
+  container: {flex: 1, backgroundColor: 'white'},
   header: {
     fontSize: 36,
     fontWeight: 'bold',
@@ -40,26 +36,29 @@ const styles = StyleSheet.create({
   },
 });
 
-const startScreenComponent: React.FC<ScreenProps> = ({
-  navigation,
-}: ScreenProps) => {
-  const signin = useCallback(() => {
+export type ScreenProps = StackScreenProps<RootStackParamList, SCREEN.Start>;
+
+const startScreenComponent = ({navigation, route}: ScreenProps) => {
+  const signIn = useCallback(() => {
     navigation.navigate(SCREEN.SignIn);
+  }, []);
+  const signUp = useCallback(() => {
+    navigation.navigate(SCREEN.SignUp);
   }, []);
 
   //render
   return (
     <View style={styles.container}>
       <Text style={styles.header}> Detecting Insect Wing App</Text>
-      <Image style={styles.img} source={require('../img/bee.jpg')} />
+      <Image style={styles.img} source={require('./img/bee.jpg')} />
 
       <View style={styles.twoBtn}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={signIn}>
           <View style={styles.btnView}>
             <Text style={styles.btnSignIn}>Sign In</Text>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={signUp}>
           <View style={styles.btnView}>
             <Text style={styles.btnSignIn}>Sign Up</Text>
           </View>
