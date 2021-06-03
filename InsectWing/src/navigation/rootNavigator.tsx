@@ -12,7 +12,7 @@ import {Start} from '../components/StartScreen/startScreen';
 import {SignUp} from '../components/SignUpScreen/signUpScreen';
 import {SignIn} from '../components/SignInScreen/signInScreen';
 import cameraScreenComponent from '../components/CameraScreen/cameraScreen';
-import PicturesComponent from '../components/PicturesScreen/pictureScreen';
+import {Pictures} from '../components/PicturesScreen/pictureScreen';
 import {About} from '../components/SettingsScreen/AboutScreen/aboutScreen';
 
 import {Settings} from '../components/SettingsScreen/settingsScreen';
@@ -20,41 +20,22 @@ import {TabBarAdvancedButton} from './TabBarAdvancedButton';
 import {Language} from '../components/SettingsScreen/LanguageScreen/languageScreen';
 import {Password} from '../components/SettingsScreen/PasswordScreen/passwordChange';
 import {Profile} from '../components/SettingsScreen/ProfileScreen/profileScreen';
+import { Detail } from '../components/PicturesScreen/DetailScreen/Detail';
 
 const Tab = createBottomTabNavigator();
 const RootStack = createStackNavigator<RootStackParamList>();
 
+type Props = {
+  barColor: string;
+};
+
 const styles = StyleSheet.create({
-  icon: {width: 25, height: 25},
   tab: {
     shadowColor: '#7F5DF0',
     shadowOffset: {width: 0, height: 10},
     shadowOpacity: 0.25,
     shadowRadius: 3.5,
     elevation: 5,
-  },
-
-  container: {
-    position: 'relative',
-    width: 75,
-    alignItems: 'center',
-  },
-  background: {
-    position: 'absolute',
-    top: 0,
-  },
-  button: {
-    top: -22.5,
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: 50,
-    height: 50,
-    borderRadius: 27,
-    backgroundColor: '#E94F37',
-  },
-  buttonIcon: {
-    fontSize: 16,
-    color: '#F6F7EB',
   },
 });
 
@@ -83,9 +64,12 @@ export const SettingStack = () => {
   );
 };
 
-type Props = {
-  barColor: string;
-};
+export const PictureStack = () => (
+  <RootStack.Navigator initialRouteName={SCREEN.Pictures} headerMode="none">
+    <RootStack.Screen name={SCREEN.Pictures} component={Pictures} />
+    <RootStack.Screen name={SCREEN.Detail} component={Detail} />
+  </RootStack.Navigator>
+);
 
 export const BottomTab: React.FC<Props> = ({barColor}) => {
   const screenOptions = useMemo<StackNavigationOptions>(
@@ -139,7 +123,7 @@ export const BottomTab: React.FC<Props> = ({barColor}) => {
 
       <Tab.Screen
         name={SCREEN.Pictures}
-        component={PicturesComponent}
+        component={PictureStack }
         options={{
           tabBarIcon: ({focused}) => (
             <Image

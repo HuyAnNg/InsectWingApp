@@ -15,6 +15,15 @@ export const styles = StyleSheet.create({
       backgroundColor: 'black',
       height: 1,
     },
+    lineView: {
+      flexDirection: 'row',
+      height: 70,
+      backgroundColor: 'gray',
+      borderRadius: 15,
+      marginTop: 5,
+      marginHorizontal: 4,
+      justifyContent: 'space-between',
+    },
     itemView: {
       flexDirection: 'row',
       height: 70,

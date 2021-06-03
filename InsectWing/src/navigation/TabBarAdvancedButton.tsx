@@ -5,7 +5,7 @@ import {BottomTabBarButtonProps} from '@react-navigation/bottom-tabs/lib/typescr
 import {TabBg} from '../../src/navigation/TabBg';
 
 const styles = StyleSheet.create({
-  container: {
+  containerBtn: {
     position: 'relative',
     width: 75,
     alignItems: 'center',
@@ -38,7 +38,7 @@ export const TabBarAdvancedButton: React.FC<Props> = (
   {bgColor, ...props},
   {focused},
 ) => (
-  <View style={styles.container} pointerEvents="box-none">
+  <View style={styles.containerBtn} pointerEvents="box-none">
     <TabBg color={bgColor} style={styles.background} />
     <TouchableOpacity style={styles.button} onPress={props.onPress}>
       <Image

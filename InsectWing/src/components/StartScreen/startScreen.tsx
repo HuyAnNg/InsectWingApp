@@ -3,10 +3,13 @@ import React, {memo, useCallback} from 'react';
 import {View, Text, Image, TouchableOpacity} from 'react-native';
 import {RootStackParamList, SCREEN} from '../../navigation/ScreenType';
 import {styles} from '../../components/StartScreen/styles';
+import LinearGradient from 'react-native-linear-gradient';
 
 export type ScreenProps = StackScreenProps<RootStackParamList, SCREEN.Start>;
 
 const startScreenComponent = ({navigation}: ScreenProps) => {
+
+  //function
   const signIn = useCallback(() => {
     navigation.navigate(SCREEN.SignIn);
   }, []);
@@ -22,14 +25,19 @@ const startScreenComponent = ({navigation}: ScreenProps) => {
 
       <View style={styles.twoBtn}>
         <TouchableOpacity onPress={signIn}>
-          <View style={styles.btnView}>
+          <LinearGradient
+            style={styles.btnView}
+            colors={['#FFC700', '#E8EB61']}>
             <Text style={styles.btnSignIn}>Sign In</Text>
-          </View>
+          </LinearGradient>
         </TouchableOpacity>
+
         <TouchableOpacity onPress={signUp}>
-          <View style={styles.btnView}>
+          <LinearGradient
+            style={styles.btnView}
+            colors={['#FFC700', '#E8EB61']}>
             <Text style={styles.btnSignIn}>Sign Up</Text>
-          </View>
+          </LinearGradient>
         </TouchableOpacity>
       </View>
     </View>

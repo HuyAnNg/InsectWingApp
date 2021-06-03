@@ -1,5 +1,5 @@
-import { StackScreenProps } from '@react-navigation/stack';
-import React, {memo, useCallback} from 'react';
+import {StackScreenProps} from '@react-navigation/stack';
+import React, {memo, useCallback, useState} from 'react';
 import {
   View,
   Text,
@@ -8,18 +8,24 @@ import {
   Image,
   TextInput,
 } from 'react-native';
-import { RootStackParamList, SCREEN } from '../../../navigation/ScreenType';
-import {styles} from '../ProfileScreen/styles'
+import {RootStackParamList, SCREEN} from '../../../navigation/ScreenType';
+import {styles} from '../ProfileScreen/styles';
 
 export type ScreenProps = StackScreenProps<RootStackParamList, SCREEN.Settings>;
 
-const ProfileComponent = ({navigation}:ScreenProps) => {
-  
-  //navigate
+const ProfileComponent = ({navigation}: ScreenProps) => {
+  //state
+  const [isVisiblity, setVisiblity] = useState(false);
+
+  //function
+  const onClickVisiblity = useCallback(() => {
+    setVisiblity(!isVisiblity);
+  }, [isVisiblity]);
+
   const back = useCallback(() => {
     navigation.navigate(SCREEN.Settings);
   }, []);
-  
+
   //render
   return (
     <View>
@@ -36,7 +42,10 @@ const ProfileComponent = ({navigation}:ScreenProps) => {
       <Image style={styles.img} source={require('../../../img/demouser.png')} />
       <View style={styles.container}>
         <View style={styles.lineView}>
-          <Image style={styles.icon} source={require('../../../img/name.png')} />
+          <Image
+            style={styles.icon}
+            source={require('../../../img/name.png')}
+          />
           <View style={styles.textLine}>
             <TextInput style={styles.input} placeholder="User name" />
             <View style={styles.line} />
@@ -44,7 +53,10 @@ const ProfileComponent = ({navigation}:ScreenProps) => {
         </View>
 
         <View style={styles.lineView}>
-          <Image style={styles.icon} source={require('../../../img/circular-line-with-word-age-in-the-center.png')} />
+          <Image
+            style={styles.icon}
+            source={require('../../../img/circular-line-with-word-age-in-the-center.png')}
+          />
           <View style={styles.textLine}>
             <TextInput style={styles.input} placeholder="Age" />
             <View style={styles.line} />
@@ -60,21 +72,44 @@ const ProfileComponent = ({navigation}:ScreenProps) => {
         </View>
 
         <View style={styles.lineView}>
-          <Image style={styles.icon} source={require('../../../img/mail.png')} />
+          <Image
+            style={styles.icon}
+            source={require('../../../img/mail.png')}
+          />
           <View style={styles.textLine}>
-            <TextInput style={styles.input} placeholder="Email" />
+            <TextInput
+              style={styles.input}
+              placeholder="Email"
+            />
             <View style={styles.line} />
           </View>
         </View>
 
-        
         <View style={styles.lineView}>
-          <Image style={styles.icon} source={require('../../../img/lock.png')} />
-          <View style={styles.textLine}>
-            <TextInput style={styles.input} placeholder="Password" secureTextEntry={true}/>
-          
+          <Image
+            style={styles.icon}
+            source={require('../../../img/lock.png')}
+          />
+          {/* <View style={styles.textLine}>
+            <View style={styles.password}>
+              <TextInput
+                style={styles.input}
+                placeholder="Password"
+                secureTextEntry={isVisiblity ? false : true}
+              />
+              <TouchableOpacity onPress={onClickVisiblity}>
+                <Image
+                  source={
+                    isVisiblity
+                      ? require('../../../img/visibility.png')
+                      : require('../../../img/visibility1.png')
+                  }
+                  style={styles.eye}
+                />
+              </TouchableOpacity>
+            </View>
             <View style={styles.line} />
-          </View>
+          </View> */}
         </View>
 
         <TouchableOpacity>
@@ -82,7 +117,6 @@ const ProfileComponent = ({navigation}:ScreenProps) => {
             <Text style={styles.btnSave}>Save</Text>
           </View>
         </TouchableOpacity>
-
       </View>
     </View>
   );

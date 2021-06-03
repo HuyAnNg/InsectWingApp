@@ -1,19 +1,60 @@
-import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs'
-import { StackNavigationProp } from '@react-navigation/stack'
-import React, { memo } from 'react'
-import { View, Text } from 'react-native'
-import { RootStackParamList, SCREEN } from '../../navigation/ScreenType'
+import React, {memo, useCallback} from 'react';
+import {
+  View,
+  FlatList,
+  SafeAreaView,
+  Image,
+  ListRenderItemInfo,
+} from 'react-native';
+import {TouchableOpacity} from 'react-native-gesture-handler';
+import {styles} from './styles';
+import {RootStackParamList, SCREEN} from '../../navigation/ScreenType';
+import {DATA} from '../PicturesScreen/constants';
+import {image} from '../../model/Item';
+import {StackScreenProps} from '@react-navigation/stack';
 
-export interface ScreenProps {
-    navigation: BottomTabNavigationProp<RootStackParamList, SCREEN.Camera>;
-  }
+type ScreenProps = StackScreenProps<RootStackParamList, SCREEN.Pictures>;
 
-const PicturesComponent: React.FC<ScreenProps> = () => {
-    return (
-        <View>
-            <Text>Picture</Text>
-        </View>
-    )
-}
+const Item = ({img}: {img: image}) => {
+  //function
+  return (
+    <View style={styles.item}>
+      <Image style={styles.title} source={img.img} />
+    </View>
+  );
+};
+const PicturesComponent = ({navigation, route}: ScreenProps) => {
 
-export default PicturesComponent
+  const keyExtractor = useCallback(item => {
+    return item.id;
+  }, []);
+
+
+  const renderItem = useCallback(
+    ({item}: ListRenderItemInfo<image>) => {
+      const onNavigateDetail = () => {
+        navigation.navigate(SCREEN.Detail, item);
+      };
+
+      return(
+      <TouchableOpacity onPress={onNavigateDetail}>
+        <Item img={item} />
+      </TouchableOpacity>)
+    },
+    [],
+  );
+
+  const col = 3;
+  return (
+    <SafeAreaView style={styles.container}>
+      <FlatList
+        data={DATA}
+        renderItem={renderItem}
+        keyExtractor={keyExtractor}
+        numColumns={col}
+      />
+    </SafeAreaView>
+  );
+};
+
+export const Pictures = memo(PicturesComponent);

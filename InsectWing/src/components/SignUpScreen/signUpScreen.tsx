@@ -13,11 +13,13 @@ import {styles} from '../../components/SignUpScreen/styles'
 
 export type ScreenProps = StackScreenProps<RootStackParamList, SCREEN.Start>;
 
+//fucntion
 const SignUpComponent = ({navigation}: ScreenProps) => {
   const signIn = useCallback(() => {
     navigation.navigate(SCREEN.SignIn);
   }, []);
 
+  //render
   return (
     <View>
       <TouchableOpacity onPress={signIn}>

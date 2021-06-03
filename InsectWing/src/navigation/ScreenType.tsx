@@ -1,3 +1,5 @@
+import { image } from "../model/Item";
+
 export enum SCREEN {
   Start = 'Start',
 
@@ -22,10 +24,12 @@ export enum SCREEN {
 export type RootStackParamList = {
   [SCREEN.Start]: undefined;
 
-  [SCREEN.Detail]: undefined;
   [SCREEN.Camera]: undefined;
   [SCREEN.Settings]: undefined;
   [SCREEN.Pictures]: undefined;
+
+  [SCREEN.Detail]: {  id: string;
+    img: string;}
 
   [SCREEN.SignIn]: undefined;
   [SCREEN.SignUp]: undefined;

@@ -8,7 +8,7 @@ import { RootStackParamList, SCREEN } from '../../../navigation/ScreenType';
 export type ScreenProps = StackScreenProps<RootStackParamList, SCREEN.Settings>;
 
 const AboutComponent = ({navigation}:ScreenProps) => {
-  //navigate
+  //function
   const back = useCallback(() => {
     navigation.navigate(SCREEN.Settings);
   }, []);

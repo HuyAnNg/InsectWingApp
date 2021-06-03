@@ -2,6 +2,7 @@ import { StackScreenProps } from '@react-navigation/stack';
 import React, {memo, useCallback, useState} from 'react';
 import {View, Text, Switch, Image} from 'react-native';
 import {ScrollView, TouchableOpacity} from 'react-native-gesture-handler';
+import LinearGradient from 'react-native-linear-gradient';
 import {styles} from '../../components/SettingsScreen/styles';
 
 import {RootStackParamList, SCREEN} from '../../navigation/ScreenType';
@@ -27,7 +28,7 @@ export type ScreenProps = StackScreenProps<RootStackParamList, SCREEN.Settings>;
     //State changes according to switch
   };
 
-  //navigate
+  //function
   const changeLanguage = useCallback(() => {
     navigation.navigate(SCREEN.Language);
   }, []);
@@ -38,7 +39,7 @@ export type ScreenProps = StackScreenProps<RootStackParamList, SCREEN.Settings>;
     navigation.navigate(SCREEN.Profile);
   }, []);
   const LogOut = useCallback(() => {
-    navigation.navigate(SCREEN.SignIn);
+    navigation.navigate(SCREEN.Start);
   }, []);
   const changePass = useCallback(() => {
     navigation.navigate(SCREEN.Password);
@@ -53,7 +54,10 @@ export type ScreenProps = StackScreenProps<RootStackParamList, SCREEN.Settings>;
     </View>
     <View style={styles.line} />
 
-    <View style={styles.itemView}>
+    <LinearGradient
+        colors={['#D7D7D7', '#FFFFFF', '#D7D7D7']}
+        style={styles.lineView}>
+    {/* <View style={styles.itemView}> */}
       <Text style={styles.text}>Notification</Text>
       <View style={{height: 50}} />
       <Switch
@@ -61,56 +65,67 @@ export type ScreenProps = StackScreenProps<RootStackParamList, SCREEN.Settings>;
         onValueChange={toggleSwitch}
         value={switchValue}
       />
-    </View>
+    {/* </View> */}
+    </LinearGradient>
 
     <TouchableOpacity onPress={changeLanguage}>
-      <View style={styles.itemView}>
+    <LinearGradient
+        colors={['#D7D7D7', '#FFFFFF', '#D7D7D7']}
+        style={styles.lineView}>
         <Text style={styles.text}>Language</Text>
         <Image
           style={styles.rectangle}
           source={require('../../img/bleach.png')}
         />
-      </View>
+      </LinearGradient>
     </TouchableOpacity>
 
     <TouchableOpacity onPress={changeProfile}>
-      <View style={styles.itemView}>
+    <LinearGradient
+        colors={['#D7D7D7', '#FFFFFF', '#D7D7D7']}
+        style={styles.lineView}>
         <Text style={styles.text}>Profile</Text>
         <Image
           style={styles.rectangle}
           source={require('../../img/bleach.png')}
         />
-      </View>
+      </LinearGradient>
     </TouchableOpacity>
 
     <TouchableOpacity onPress={changeAbout}>
-      <View style={styles.itemView}>
+    <LinearGradient
+        colors={['#D7D7D7', '#FFFFFF', '#D7D7D7']}
+        style={styles.lineView}>
         <Text style={styles.text}>About</Text>
         <Image
           style={styles.rectangle}
           source={require('../../img/bleach.png')}
         />
-      </View>
+       </LinearGradient>
     </TouchableOpacity>
 
     <TouchableOpacity onPress={changePass}>
-      <View style={styles.itemView}>
+    <LinearGradient
+        colors={['#D7D7D7', '#FFFFFF', '#D7D7D7']}
+        style={styles.lineView}>
         <Text style={styles.text}>Change Password</Text>
         <Image
           style={styles.rectangle}
           source={require('../../img/bleach.png')}
         />
-      </View>
+      </LinearGradient>
     </TouchableOpacity>
 
     <TouchableOpacity onPress={LogOut}>
-      <View style={styles.itemView}>
+    <LinearGradient
+        colors={['#D7D7D7', '#FFFFFF', '#D7D7D7']}
+        style={styles.lineView}>
         <Text style={styles.text}>Log out</Text>
         <Image
           style={styles.power}
           source={require('../../img/power-button.png')}
         />
-      </View>
+      </LinearGradient>
     </TouchableOpacity>
   
 </ScrollView>

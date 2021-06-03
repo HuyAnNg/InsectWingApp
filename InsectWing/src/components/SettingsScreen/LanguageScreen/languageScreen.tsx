@@ -8,20 +8,18 @@ import {
   Image,
   TextInput,
 } from 'react-native';
-import {styles} from '../../SettingsScreen/LanguageScreen/styles'
-import { StackScreenProps } from '@react-navigation/stack';
-import { RootStackParamList, SCREEN } from '../../../navigation/ScreenType';
-
-
+import {styles} from '../../SettingsScreen/LanguageScreen/styles';
+import {StackScreenProps} from '@react-navigation/stack';
+import {RootStackParamList, SCREEN} from '../../../navigation/ScreenType';
 
 export type ScreenProps = StackScreenProps<RootStackParamList, SCREEN.Settings>;
 
-const LanguageComponent = ({navigation}:ScreenProps) => {
-  //navigate
+const LanguageComponent = ({navigation}: ScreenProps) => {
+  //function
   const back = useCallback(() => {
     navigation.navigate(SCREEN.Settings);
   }, []);
-  
+
   //render
   return (
     <View>
@@ -39,13 +37,29 @@ const LanguageComponent = ({navigation}:ScreenProps) => {
       {/* <LinearGradient
         colors={['gray', 'white', 'gray']}
         style={styles.lineView}> */}
-        <View style={styles.lineView}>
+      <TouchableOpacity>
+        <LinearGradient
+          colors={['#D7D7D7', '#FFFFFF', '#D7D7D7']}
+          style={styles.lineView}>
           <Image
             style={styles.icon}
             source={require('../../../img/vietnam.png')}
           />
           <Text style={styles.text2}>Vietnamese</Text>
-        </View>
+        </LinearGradient>
+      </TouchableOpacity>
+
+      <TouchableOpacity>
+        <LinearGradient
+          colors={['#D7D7D7', '#FFFFFF', '#D7D7D7']}
+          style={styles.lineView}>
+          <Image
+            style={styles.icon}
+            source={require('../../../img/united-kingdom.png')}
+          />
+          <Text style={styles.text2}>English</Text>
+        </LinearGradient>
+      </TouchableOpacity>
       {/* </LinearGradient> */}
     </View>
   );
