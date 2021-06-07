@@ -11,7 +11,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {Start} from '../components/StartScreen/startScreen';
 import {SignUp} from '../components/SignUpScreen/signUpScreen';
 import {SignIn} from '../components/SignInScreen/signInScreen';
-import cameraScreenComponent from '../components/CameraScreen/cameraScreen';
+import {Camera} from '../components/CameraScreen/cameraScreen';
 import {Pictures} from '../components/PicturesScreen/pictureScreen';
 import {About} from '../components/SettingsScreen/AboutScreen/aboutScreen';
 
@@ -20,7 +20,7 @@ import {TabBarAdvancedButton} from './TabBarAdvancedButton';
 import {Language} from '../components/SettingsScreen/LanguageScreen/languageScreen';
 import {Password} from '../components/SettingsScreen/PasswordScreen/passwordChange';
 import {Profile} from '../components/SettingsScreen/ProfileScreen/profileScreen';
-import { Detail } from '../components/PicturesScreen/DetailScreen/Detail';
+import {Detail} from '../components/PicturesScreen/DetailScreen/Detail';
 
 const Tab = createBottomTabNavigator();
 const RootStack = createStackNavigator<RootStackParamList>();
@@ -39,20 +39,21 @@ const styles = StyleSheet.create({
   },
 });
 
-export const Stack = () => {
+export const LogInStack = () => {
   return (
     <NavigationContainer>
       <RootStack.Navigator initialRouteName={SCREEN.Start} headerMode="none">
         <RootStack.Screen name={SCREEN.Start} component={Start} />
         <RootStack.Screen name={SCREEN.SignUp} component={SignUp} />
         <RootStack.Screen name={SCREEN.SignIn} component={SignIn} />
-        <RootStack.Screen name={SCREEN.Settings} component={SettingStack} />
+        <RootStack.Screen name={SCREEN.Settings} component={MainStack} />
       </RootStack.Navigator>
     </NavigationContainer>
   );
 };
 
-export const SettingStack = () => {
+
+export const MainStack = () => {
   return (
     <RootStack.Navigator initialRouteName={SCREEN.Settings} headerMode="none">
       <RootStack.Screen name={SCREEN.Settings} component={BottomTab} />
@@ -60,16 +61,12 @@ export const SettingStack = () => {
       <RootStack.Screen name={SCREEN.About} component={About} />
       <RootStack.Screen name={SCREEN.Profile} component={Profile} />
       <RootStack.Screen name={SCREEN.Password} component={Password} />
+
+      <RootStack.Screen name={SCREEN.Detail} component={Detail} />
     </RootStack.Navigator>
   );
 };
 
-export const PictureStack = () => (
-  <RootStack.Navigator initialRouteName={SCREEN.Pictures} headerMode="none">
-    <RootStack.Screen name={SCREEN.Pictures} component={Pictures} />
-    <RootStack.Screen name={SCREEN.Detail} component={Detail} />
-  </RootStack.Navigator>
-);
 
 export const BottomTab: React.FC<Props> = ({barColor}) => {
   const screenOptions = useMemo<StackNavigationOptions>(
@@ -113,7 +110,7 @@ export const BottomTab: React.FC<Props> = ({barColor}) => {
       />
       <Tab.Screen
         name={SCREEN.Camera}
-        component={cameraScreenComponent}
+        component={Camera}
         options={{
           tabBarButton: props => (
             <TabBarAdvancedButton bgColor={barColor} {...props} />
@@ -123,7 +120,7 @@ export const BottomTab: React.FC<Props> = ({barColor}) => {
 
       <Tab.Screen
         name={SCREEN.Pictures}
-        component={PictureStack }
+        component={Pictures}
         options={{
           tabBarIcon: ({focused}) => (
             <Image

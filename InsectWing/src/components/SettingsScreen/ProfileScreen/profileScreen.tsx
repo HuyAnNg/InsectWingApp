@@ -77,39 +77,9 @@ const ProfileComponent = ({navigation}: ScreenProps) => {
             source={require('../../../img/mail.png')}
           />
           <View style={styles.textLine}>
-            <TextInput
-              style={styles.input}
-              placeholder="Email"
-            />
+            <TextInput style={styles.input} placeholder="Email" />
             <View style={styles.line} />
           </View>
-        </View>
-
-        <View style={styles.lineView}>
-          <Image
-            style={styles.icon}
-            source={require('../../../img/lock.png')}
-          />
-          {/* <View style={styles.textLine}>
-            <View style={styles.password}>
-              <TextInput
-                style={styles.input}
-                placeholder="Password"
-                secureTextEntry={isVisiblity ? false : true}
-              />
-              <TouchableOpacity onPress={onClickVisiblity}>
-                <Image
-                  source={
-                    isVisiblity
-                      ? require('../../../img/visibility.png')
-                      : require('../../../img/visibility1.png')
-                  }
-                  style={styles.eye}
-                />
-              </TouchableOpacity>
-            </View>
-            <View style={styles.line} />
-          </View> */}
         </View>
 
         <TouchableOpacity>

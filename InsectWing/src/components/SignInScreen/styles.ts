@@ -67,11 +67,11 @@ export const styles = StyleSheet.create({
     marginLeft: 20,
     marginTop: 12,
   },
-  eye: {width: 30, height: 30, marginTop: 6,},
+  eye: {width: 30, height: 30, marginTop: 6},
   password: {flexDirection: 'row', flex: 1},
   textLine: {
     width: 250,
     marginLeft: 30,
   },
-  input: {fontSize: 22, height: 44,width:'85%'},
+  input: {fontSize: 22, height: 44, width: '85%',fontFamily: 'Helvetica'},
 });

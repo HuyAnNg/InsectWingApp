@@ -19,7 +19,7 @@ const DetailComponent = ({navigation, route}: ScreenProps) => {
 
   //render
   return (
-    <View style={{flex:1}}>
+    <View style={{flex: 1,}}>
       <View style={styles.headerView}>
         <TouchableOpacity onPress={back}>
           <View style={styles.btnView}>
@@ -28,32 +28,25 @@ const DetailComponent = ({navigation, route}: ScreenProps) => {
         </TouchableOpacity>
         <Text style={styles.header}>Detail</Text>
         <View style={{width: 60}} />
-        <View style={styles.line} />
       </View>
-      
+      <View style={styles.line} />
       <View style={styles.pic}>
         <Image source={IMAGE} style={styles.img} />
       </View>
+      <View style={styles.line} />
       <View style={styles.footer}>
-        <View style={styles.line} />
-        <TouchableOpacity onPress={back}>
+        <TouchableOpacity>
           <View style={styles.btnView}>
             <Text style={styles.btnBack}>Crop</Text>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity onPress={back}>
+        <TouchableOpacity>
           <View style={styles.btnView}>
             <Text style={styles.btnBack}>Rotate</Text>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity onPress={back}>
-          <View style={styles.btnView}>
-            <Text style={styles.btnBack}>Brightness</Text>
-          </View>
-        </TouchableOpacity>
       </View>
-    <View style={{flex:1}}/>
-    </View >
+    </View>
   );
 };
 

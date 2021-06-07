@@ -1,14 +1,14 @@
 import React, {useEffect} from 'react';
 import SplashScreen from 'react-native-splash-screen';
 
-import {BottomTab, SettingStack, Stack} from './src/navigation/rootNavigator';
+import {BottomTab, MainStack, LogInStack} from './src/navigation/rootNavigator';
 
 const App = () => {
   useEffect(() => {
     SplashScreen.hide();
   }, []);
 
-  return <Stack />;
+  return <LogInStack />;
 };
 
 export default App;

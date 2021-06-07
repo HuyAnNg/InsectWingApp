@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
     btnView: {
-      width: 80,
+      width: 100,
       height: 45,
       justifyContent: 'center',
       alignItems: 'center',
@@ -17,13 +17,13 @@ export const styles = StyleSheet.create({
       fontWeight: 'bold',
     },
     btnView2: {
-      width: 80,
+      width: 100,
       height: 45,
       justifyContent: 'center',
       alignSelf: 'center',
       backgroundColor: '#FFC700',
       borderRadius: 20,
-      marginVertical: 8,
+      marginTop: 20,
     },
   
     btnSignUp: {

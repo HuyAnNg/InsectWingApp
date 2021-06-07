@@ -2,7 +2,7 @@ import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
   headerView: {
-    flex:1,
+    flex: 1,
     flexDirection: 'row',
     marginHorizontal: 10,
     marginVertical: 10,
@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
     width: 90,
     height: 40,
     justifyContent: 'center',
-    alignItems: 'center',
+
     backgroundColor: '#FFC700',
     borderRadius: 20,
   },
@@ -29,10 +29,13 @@ export const styles = StyleSheet.create({
     backgroundColor: 'black',
     height: 1,
   },
-  pic: {flex:5},
-  footer: {flex:1,flexDirection: 'row',
-justifyContent:'space-evenly'
-},
-  img:{
-  }
+  pic: {flex: 4, alignItems: 'center', justifyContent: 'center'},
+  footer: {
+    flex: 1,
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+  },
+  img: {},
 });

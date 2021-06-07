@@ -1,6 +1,6 @@
 import {StackScreenProps} from '@react-navigation/stack';
 import React, { memo, useCallback, useState} from 'react';
-import {View, Text, Image, TextInput, TouchableOpacity} from 'react-native';
+import {View, Text, Image, TextInput, TouchableOpacity, Platform} from 'react-native';
 import {RootStackParamList, SCREEN} from '../../navigation/ScreenType';
 import {styles} from '../../components/SignInScreen/styles';
 
@@ -22,6 +22,10 @@ const SignInComponent = ({navigation}: ScreenProps) => {
   const onClickVisiblity = useCallback(() => {
     setVisiblity(!isVisiblity);
   },[isVisiblity])
+
+  const hold = useCallback(() => {
+    
+  }, []);
 
   //render
   return (
