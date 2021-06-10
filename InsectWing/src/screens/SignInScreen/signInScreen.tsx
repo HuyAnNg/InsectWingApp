@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import {RootStackParamList, SCREEN} from '../../navigation/ScreenType';
-import {styles} from '../../components/SignInScreen/styles';
+import {styles} from '../../screens/SignInScreen/styles';
 import auth from '@react-native-firebase/auth';
 
 export type ScreenProps = StackScreenProps<RootStackParamList, SCREEN.Start>;

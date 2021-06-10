@@ -24,19 +24,21 @@ export const styles = StyleSheet.create({
       fontWeight: 'bold',
     },
     btnView2: {
-      width: WIDTH-310,
+      width: WIDTH-290,
       height: HEIGHT-750,
       justifyContent: 'center',
       alignSelf: 'center',
       backgroundColor: '#FFC700',
       borderRadius: 20,
       marginTop: 20,
+      
     },
   
     btnSignUp: {
       fontSize: 20,
       textAlign: 'center',
       fontWeight: 'bold',
+     
     },
   
     header: {
@@ -52,7 +54,8 @@ export const styles = StyleSheet.create({
       marginHorizontal: 20,
       paddingVertical: 20,
       borderRadius: 60,
-      height: HEIGHT-440,
+      //height: 350,
+      alignSelf:'center'
     },
   
     img: {width: 90, height: 90, justifyContent: 'center', alignSelf: 'center'},

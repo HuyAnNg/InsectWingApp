@@ -9,7 +9,7 @@ import {
   Alert,
 } from 'react-native';
 import {RootStackParamList, SCREEN} from '../../navigation/ScreenType';
-import {styles} from '../../components/SignUpScreen/styles';
+import {styles} from '../../screens/SignUpScreen/styles';
 import auth from '@react-native-firebase/auth';
 import {ScrollView} from 'react-native-gesture-handler';
 

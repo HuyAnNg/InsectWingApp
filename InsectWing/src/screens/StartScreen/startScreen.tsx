@@ -2,7 +2,7 @@ import {StackScreenProps} from '@react-navigation/stack';
 import React, {memo, useCallback} from 'react';
 import {View, Text, Image, TouchableOpacity} from 'react-native';
 import {RootStackParamList, SCREEN} from '../../navigation/ScreenType';
-import {styles} from '../../components/StartScreen/styles';
+import {styles} from '../../screens/StartScreen/styles';
 import LinearGradient from 'react-native-linear-gradient';
 
 export type ScreenProps = StackScreenProps<RootStackParamList, SCREEN.Start>;

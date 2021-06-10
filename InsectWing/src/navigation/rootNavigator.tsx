@@ -8,19 +8,19 @@ import {NavigationContainer} from '@react-navigation/native';
 
 import {Image, StyleSheet} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {Start} from '../components/StartScreen/startScreen';
-import {SignUp} from '../components/SignUpScreen/signUpScreen';
-import {SignIn} from '../components/SignInScreen/signInScreen';
-import {Camera} from '../components/CameraScreen/cameraScreen';
-import {Pictures} from '../components/PicturesScreen/pictureScreen';
-import {About} from '../components/SettingsScreen/AboutScreen/aboutScreen';
+import {Start} from '../screens/StartScreen/startScreen';
+import {SignUp} from '../screens/SignUpScreen/signUpScreen';
+import {SignIn} from '../screens/SignInScreen/signInScreen';
+import {Camera} from '../screens/CameraScreen/cameraScreen';
+import {Pictures} from '../screens/PicturesScreen/pictureScreen';
+import {About} from '../screens/SettingsScreen/AboutScreen/aboutScreen';
 
-import {Settings} from '../components/SettingsScreen/settingsScreen';
+import {Settings} from '../screens/SettingsScreen/settingsScreen';
 import {TabBarAdvancedButton} from './TabBarAdvancedButton';
-import {Language} from '../components/SettingsScreen/LanguageScreen/languageScreen';
-import {Password} from '../components/SettingsScreen/PasswordScreen/passwordChange';
-import {Profile} from '../components/SettingsScreen/ProfileScreen/profileScreen';
-import {Detail} from '../components/PicturesScreen/DetailScreen/Detail';
+import {Language} from '../screens/SettingsScreen/LanguageScreen/languageScreen';
+import {Password} from '../screens/SettingsScreen/PasswordScreen/passwordChange';
+import {Profile} from '../screens/SettingsScreen/ProfileScreen/profileScreen';
+import {Detail} from '../screens/PicturesScreen/DetailScreen/Detail';
 
 const Tab = createBottomTabNavigator();
 const RootStack = createStackNavigator<RootStackParamList>();

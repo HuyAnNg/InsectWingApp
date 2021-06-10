@@ -3,7 +3,7 @@ import React, {memo, useCallback, useState} from 'react';
 import {View, Text, Switch, Image, Modal} from 'react-native';
 import {ScrollView, TouchableOpacity} from 'react-native-gesture-handler';
 import LinearGradient from 'react-native-linear-gradient';
-import {styles} from '../../components/SettingsScreen/styles';
+import {styles} from '../../screens/SettingsScreen/styles';
 import { LogOutModal} from '../SettingsScreen/logOutModal';
 import {RootStackParamList, SCREEN} from '../../navigation/ScreenType';
 
