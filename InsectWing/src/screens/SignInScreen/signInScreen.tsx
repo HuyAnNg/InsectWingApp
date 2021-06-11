@@ -1,11 +1,12 @@
 import {StackScreenProps} from '@react-navigation/stack';
-import React, {memo, useCallback, useEffect, useState} from 'react';
+import React, {memo, useCallback, useState} from 'react';
 import {
   View,
   Text,
   Image,
   TextInput,
   TouchableOpacity,
+  Alert,
 } from 'react-native';
 import {RootStackParamList, SCREEN} from '../../navigation/ScreenType';
 import {styles} from '../../screens/SignInScreen/styles';
@@ -17,49 +18,22 @@ const SignInComponent = ({navigation}: ScreenProps) => {
   //state
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  
   const [isVisiblity, setVisiblity] = useState(false);
-  //const [list, setList] = useState()
-  // const [initializing, setInitializing] = useState(true);
-  // const [user, setUser] = useState();
 
+ 
 
-  
-
-  // //function
-
-  // function onAuthStateChanged(user:any) {
-  //   setUser(user);
-  //   if (initializing) setInitializing(false);
-  // }
-
-  // useEffect(() => {
-  //   const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
-  //   return subscriber; // unsubscribe on unmount
-  // }, []);
-
-  // if (initializing) return null;
-
-  // if (!user) {
-  //   return (
-  //     <View>
-  //       <Text>Login</Text>
-  //     </View>
-  //   );
-  // }
-
-  // return (
-  //   <View>
-  //     <Text>Welcome {user.email}</Text>
-  //   </View>
-  // );
-
-//////
-  const logIn = (email: any, password: any) => {
+  const logIn = (email: any, password: any,) => {
     auth()
       .signInWithEmailAndPassword(email, password)
       .then(() => {
-        console.log('User account created & signed in!');
+        
+        Alert.alert('Welcome!', '', [
+          {
+            text: 'OK',
+            onPress:()=>{navigation.navigate(SCREEN.Settings)}
+          },
+        ]);
+        console.log('ok');
       })
       .catch(error => {
         if (error.code === 'auth/email-already-in-use') {
@@ -73,6 +47,9 @@ const SignInComponent = ({navigation}: ScreenProps) => {
         console.error(error);
       });
   };
+  // firebase.auth().onAuthStateChanged(user => {
+  //   this.props.navigation.navigate(user ? 'Main' : 'SignUp')
+  // })
 
   const signUp = useCallback(() => {
     navigation.navigate(SCREEN.SignUp);
@@ -106,7 +83,6 @@ const SignInComponent = ({navigation}: ScreenProps) => {
               placeholderTextColor="gray"
               value={email}
               onChangeText={setEmail}
-             
             />
             <View style={styles.line} />
           </View>
@@ -124,7 +100,7 @@ const SignInComponent = ({navigation}: ScreenProps) => {
                 placeholder="Password"
                 placeholderTextColor="gray"
                 secureTextEntry={isVisiblity ? false : true}
-                maxLength={10}
+                //maxLength={13}
                 value={password}
                 onChangeText={setPassword}
               />
@@ -144,7 +120,7 @@ const SignInComponent = ({navigation}: ScreenProps) => {
         </View>
       </View>
 
-      <TouchableOpacity onPress={enter}>
+      <TouchableOpacity onPress={() => logIn(email, password)}>
         <View style={styles.btnView2}>
           <Text style={styles.btnEnter}>Enter</Text>
         </View>

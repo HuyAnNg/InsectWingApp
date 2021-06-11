@@ -17,6 +17,7 @@ export type ScreenProps = StackScreenProps<RootStackParamList, SCREEN.Start>;
 
 const SignUpComponent = ({navigation}: ScreenProps) => {
   //state
+  const [user, setuser] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [repeat, setRepeat] = useState('');
@@ -30,6 +31,8 @@ const SignUpComponent = ({navigation}: ScreenProps) => {
     auth()
       .createUserWithEmailAndPassword(email, password)
       .then(() => {
+        email=('')
+        password=('')
         console.log('User account created & signed in!');
       })
       .catch(error => {
@@ -45,21 +48,14 @@ const SignUpComponent = ({navigation}: ScreenProps) => {
       });
   };
 
-  const checkPass = (password: any, repeat: any, email: any) => {
-    if (password !== repeat) {
-      Alert.alert('ERROR', 'Please check your password', [
+  const check = (user: any, password: any, repeat: any, email: any) => {
+    if (password !== repeat || user ==('')) {
+      Alert.alert('ERROR', 'Please check your information', [
         {
           text: 'OK',
         },
       ]);
-    } else {
-      checkLogin(email, password);
-      Alert.alert('Sign Up Success!', 'Sign in with your account', [
-        {
-          text: 'OK',
-        },
-      ]);
-    }
+    } 
   };
 
   //render
@@ -72,7 +68,7 @@ const SignUpComponent = ({navigation}: ScreenProps) => {
           </View>
         </TouchableOpacity>
         <Text style={styles.header}>Create your account</Text>
-        
+
         <View style={styles.container2}>
           <Image
             style={styles.img}
@@ -85,6 +81,8 @@ const SignUpComponent = ({navigation}: ScreenProps) => {
                 style={styles.input}
                 placeholder="User name"
                 placeholderTextColor="gray"
+                value={user}
+                onChangeText={setuser}
               />
               <View style={styles.line} />
             </View>
@@ -140,7 +138,7 @@ const SignUpComponent = ({navigation}: ScreenProps) => {
           </View>
         </View>
 
-        <TouchableOpacity onPress={() => checkPass(email, password, repeat)}>
+        <TouchableOpacity onPress={() => checkLogin(email, password )}>
           <View style={styles.btnView2}>
             <Text style={styles.btnSignUp}>Sign Up</Text>
           </View>

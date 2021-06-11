@@ -1,4 +1,4 @@
-import React, {memo, useCallback} from 'react';
+import React, {memo, useCallback, useState} from 'react';
 import {
   View,
   FlatList,
@@ -12,6 +12,8 @@ import {RootStackParamList, SCREEN} from '../../navigation/ScreenType';
 import {DATA} from '../PicturesScreen/constants';
 import {image} from '../../model/Item';
 import {StackScreenProps} from '@react-navigation/stack';
+import ImagePicker from 'react-native-image-crop-picker';
+
 
 type ScreenProps = StackScreenProps<RootStackParamList, SCREEN.Pictures>;
 
@@ -19,7 +21,7 @@ const Item = ({img}: {img: image}) => {
   //function
   return (
     <View style={styles.item}>
-      <Image style={styles.title} source={img.img} />
+      <Image style={styles.title} source={img.img}/>
     </View>
   );
 };
@@ -33,6 +35,8 @@ const Item = ({img}: {img: image}) => {
   // };
 
 const PicturesComponent = ({navigation}: ScreenProps) => {
+
+  const [img, setImg] = useState('');
 
   const keyExtractor = useCallback(item => {
     return item.id;

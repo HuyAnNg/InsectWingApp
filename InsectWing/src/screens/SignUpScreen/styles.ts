@@ -1,4 +1,5 @@
 import { Dimensions, StyleSheet } from "react-native";
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 
 
@@ -9,8 +10,8 @@ const SCALE = Dimensions.get('window').scale
 
 export const styles = StyleSheet.create({
     btnView: {
-      width: WIDTH-310,
-      height: HEIGHT-760,
+      width: wp('24%'),
+      height: hp('6%'),
       justifyContent: 'center',
       alignItems: 'center',
       backgroundColor: '#FFC700',
@@ -24,8 +25,8 @@ export const styles = StyleSheet.create({
       fontWeight: 'bold',
     },
     btnView2: {
-      width: WIDTH-290,
-      height: HEIGHT-750,
+      width: wp('24%'),
+      height: hp('6%'),
       justifyContent: 'center',
       alignSelf: 'center',
       backgroundColor: '#FFC700',
@@ -51,10 +52,11 @@ export const styles = StyleSheet.create({
   
     container2: {
       backgroundColor: '#FFC700',
-      marginHorizontal: 20,
+      
       paddingVertical: 20,
       borderRadius: 60,
-      //height: 350,
+      width: wp('90%'),
+      height: hp('60%'),
       alignSelf:'center'
     },
   
@@ -63,7 +65,7 @@ export const styles = StyleSheet.create({
     line: {
       backgroundColor: 'black',
       height: 1,
-      width: LINE-170
+      width: wp('60%')
     },
   
     lineView: {

@@ -4,9 +4,13 @@ import {View, Text, Switch, Image, Modal} from 'react-native';
 import {ScrollView, TouchableOpacity} from 'react-native-gesture-handler';
 import LinearGradient from 'react-native-linear-gradient';
 import {styles} from '../../screens/SettingsScreen/styles';
-import { LogOutModal} from '../SettingsScreen/logOutModal';
+import {LogOutModal} from '../SettingsScreen/logOutModal';
 import {RootStackParamList, SCREEN} from '../../navigation/ScreenType';
-
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
+import auth from '@react-native-firebase/auth';
 // export interface ScreenProps {
 //   navigation: BottomTabNavigationProp<RootStackParamList, SCREEN.Camera>;
 // }
@@ -16,7 +20,7 @@ export type ScreenProps = StackScreenProps<RootStackParamList, SCREEN.Settings>;
 const SettingsComponent = ({navigation}: ScreenProps) => {
   // state
   const [isModalVisible, setisModalVisible] = useState(false);
-  
+
   //switch
   const [switchValue, setSwitchValue] = useState(false);
 
@@ -37,7 +41,10 @@ const SettingsComponent = ({navigation}: ScreenProps) => {
     navigation.navigate(SCREEN.Profile);
   }, []);
   const onLogOut = useCallback(() => {
-    navigation.navigate(SCREEN.Start);
+    auth()
+  .signOut()
+  .then(() => console.log('User signed out!'));
+    //navigation.navigate(SCREEN.Start);
     onCloseModal();
   }, []);
   const changePass = useCallback(() => {
@@ -51,7 +58,7 @@ const SettingsComponent = ({navigation}: ScreenProps) => {
 
   const onCloseModal = useCallback(() => {
     setisModalVisible(false);
-  },[])
+  }, []);
 
   //render
   return (
@@ -66,7 +73,7 @@ const SettingsComponent = ({navigation}: ScreenProps) => {
         style={styles.lineView}>
         {/* <View style={styles.itemView}> */}
         <Text style={styles.text}>Notification</Text>
-        <View style={{height: 50}} />
+        <View style={{height: hp('11.5%')}} />
         <Switch
           trackColor={{false: '#D7D7D7', true: '#B9CDC3'}}
           style={styles.switch}
@@ -135,15 +142,14 @@ const SettingsComponent = ({navigation}: ScreenProps) => {
           />
         </LinearGradient>
       </TouchableOpacity>
-      
+
       <Modal
         transparent={true}
-        animationType='fade'
+        animationType="fade"
         visible={isModalVisible}
-        onRequestClose={() => setisModalVisible(false)}
-        >
-          <LogOutModal onCancel = {onCloseModal} onOK={onLogOut}/>
-        </Modal>
+        onRequestClose={() => setisModalVisible(false)}>
+        <LogOutModal onCancel={onCloseModal} onOK={onLogOut} />
+      </Modal>
     </ScrollView>
   );
 };

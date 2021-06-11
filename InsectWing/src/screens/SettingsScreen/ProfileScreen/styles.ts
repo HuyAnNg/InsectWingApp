@@ -1,4 +1,7 @@
-import {Password} from './../PasswordScreen/passwordChange';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
@@ -9,8 +12,8 @@ export const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   btnView: {
-    width: 60,
-    height: 40,
+    width: wp('20%'),
+    height: hp('6%'),
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#FFC700',
@@ -28,6 +31,12 @@ export const styles = StyleSheet.create({
   line: {
     backgroundColor: 'black',
     height: 1,
+
+  },
+  line2: {
+    backgroundColor: 'black',
+    height: 1,
+    width:wp('50%')
   },
   info: {
     marginHorizontal: 60,
@@ -38,8 +47,8 @@ export const styles = StyleSheet.create({
     fontWeight: '800',
   },
   img: {
-    width: 100,
-    height: 100,
+    width: wp('26%'),
+    height: hp('17%'),
     alignSelf: 'center',
     marginTop: 20,
   },
@@ -48,8 +57,8 @@ export const styles = StyleSheet.create({
     marginVertical: 4,
   },
   icon: {
-    width: 30,
-    height: 30,
+    width: wp('11%'),
+    height: hp('7%'),
     marginLeft: 20,
     marginTop: 12,
   },
@@ -59,7 +68,7 @@ export const styles = StyleSheet.create({
   },
   input: {
     fontSize: 18,
-    height: 40,
+    height: hp('8%'),
   },
   btnSave: {
     fontWeight: 'bold',
@@ -67,8 +76,8 @@ export const styles = StyleSheet.create({
   },
   btnSaveView: {
     alignSelf: 'center',
-    width: 80,
-    height: 40,
+    width: wp('22%'),
+    height: hp('6%'),
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#FFC700',

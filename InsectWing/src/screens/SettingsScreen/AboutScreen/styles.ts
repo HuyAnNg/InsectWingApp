@@ -17,6 +17,7 @@ export const styles = StyleSheet.create({
     },
     btnBack: {
       textAlign: 'center',
+      fontWeight:'bold'
     },
     header: {
       fontSize: 30,

@@ -10,6 +10,11 @@ import {
 } from 'react-native';
 import {RootStackParamList, SCREEN} from '../../../navigation/ScreenType';
 import {styles} from '../ProfileScreen/styles';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
+
 
 export type ScreenProps = StackScreenProps<RootStackParamList, SCREEN.Settings>;
 
@@ -36,7 +41,7 @@ const ProfileComponent = ({navigation}: ScreenProps) => {
           </View>
         </TouchableOpacity>
         <Text style={styles.header}>Profile</Text>
-        <View style={{width: 60}} />
+        <View style={{width: wp('20%'),}} />
       </View>
       <View style={styles.line} />
       <Image style={styles.img} source={require('../../../img/demouser.png')} />
@@ -48,7 +53,7 @@ const ProfileComponent = ({navigation}: ScreenProps) => {
           />
           <View style={styles.textLine}>
             <TextInput style={styles.input} placeholder="User name"  placeholderTextColor="gray"/>
-            <View style={styles.line} />
+            <View style={styles.line2} />
           </View>
         </View>
 
@@ -59,7 +64,7 @@ const ProfileComponent = ({navigation}: ScreenProps) => {
           />
           <View style={styles.textLine}>
             <TextInput style={styles.input} placeholder="Age"  placeholderTextColor="gray"/>
-            <View style={styles.line} />
+            <View style={styles.line2} />
           </View>
         </View>
 
@@ -67,7 +72,7 @@ const ProfileComponent = ({navigation}: ScreenProps) => {
           <Image style={styles.icon} source={require('../../../img/sex.png')} />
           <View style={styles.textLine}>
             <TextInput style={styles.input} placeholder="Sex"  placeholderTextColor="gray"/>
-            <View style={styles.line} />
+            <View style={styles.line2} />
           </View>
         </View>
 
@@ -78,7 +83,7 @@ const ProfileComponent = ({navigation}: ScreenProps) => {
           />
           <View style={styles.textLine}>
             <TextInput style={styles.input} placeholder="Email"  placeholderTextColor="gray"/>
-            <View style={styles.line} />
+            <View style={styles.line2} />
           </View>
         </View>
 
