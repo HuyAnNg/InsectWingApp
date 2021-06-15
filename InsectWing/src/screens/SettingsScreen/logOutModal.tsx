@@ -6,15 +6,12 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-//import { styles } from '../StartScreen/styles'
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 
-export const LogOutModal = ({
-  onCancel,
-  onOK,
-}: {
-  onCancel: () => void;
-  onOK: () => void;
-}) => {
+export const LogOutModal = ({onCancel, onOK,}: {onCancel: () => void; onOK: () => void;}) => {
   //render
   return (
     <View style={styles.container}>
@@ -35,13 +32,13 @@ export const LogOutModal = ({
     </View>
   );
 };
-const HEIGHT_MODAL = Dimensions.get('window').height;
-const WIDTH_MODAL = Dimensions.get('window').width;
+//const HEIGHT_MODAL = Dimensions.get('window').height;
+//const WIDTH_MODAL = Dimensions.get('window').width;
 const styles = StyleSheet.create({
   container: {flex: 1},
   modal: {
-    height: HEIGHT_MODAL - 650,
-    width: WIDTH_MODAL - 80,
+    height: hp('20%'),
+    width: wp('60%'),
     paddingTop: 10,
     backgroundColor: 'white',
     borderRadius: 10,
@@ -54,9 +51,13 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingVertical: 10,
     alignItems: 'center',
+  },
+  touch2: {
+    flex: 1,
+    paddingVertical: 10,
+    alignItems: 'center',
     borderRightWidth: 1,
   },
-  touch2: {flex: 1, paddingVertical: 10, alignItems: 'center'},
   text: {margin: 5, fontSize: 16, fontWeight: 'bold'},
   textView: {flex: 1, alignItems: 'center'},
   btnView: {width: '100%', flexDirection: 'row'},

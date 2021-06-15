@@ -1,0 +1,41 @@
+{
+    "project_info": {
+        "project_number": "576931312791",
+        "firebase_url": "https://insectwing-8272e-default-rtdb.asia-southeast1.firebasedatabase.app",
+        "project_id": "insectwing-8272e",
+        "storage_bucket": "insectwing-8272e.appspot.com"
+    },
+    "client": [{
+        "client_info": {
+            "mobilesdk_app_id": "1:576931312791:android:493b1cd08affc2c8ee65d2",
+            "android_client_info": {
+                "package_name": "com.insectwing"
+            }
+        },
+        "oauth_client": [{
+                "client_id": "576931312791-prj97bae1b4c4rleak43euqcittc1rmh.apps.googleusercontent.com",
+                "client_type": 1,
+                "android_info": {
+                    "package_name": "com.insectwing",
+                    "certificate_hash": "10223f5c765884387ccbbaa84d5eedc7557d17ba"
+                }
+            },
+            {
+                "client_id": "576931312791-g0sp2k715o9bnship80026a43v7v27ji.apps.googleusercontent.com",
+                "client_type": 3
+            }
+        ],
+        "api_key": [{
+            "current_key": "AIzaSyCyt-brszG2mPRj733nw0dIwTsslmDR1-o"
+        }],
+        "services": {
+            "appinvite_service": {
+                "other_platform_oauth_client": [{
+                    "client_id": "576931312791-g0sp2k715o9bnship80026a43v7v27ji.apps.googleusercontent.com",
+                    "client_type": 3
+                }]
+            }
+        }
+    }],
+    "configuration_version": "1"
+}

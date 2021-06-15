@@ -1,4 +1,5 @@
 import {image} from './../../model/Item.d';
+//import {uri} from '../CameraScreen/cameraScreen'
 export const DATA: Array<image> = [
   {
     id: '1',

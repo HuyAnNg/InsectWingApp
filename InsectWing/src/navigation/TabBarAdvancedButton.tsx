@@ -2,8 +2,6 @@ import React from 'react';
 import {Image, StyleSheet, TouchableOpacity, View} from 'react-native';
 import {BottomTabBarButtonProps} from '@react-navigation/bottom-tabs/lib/typescript/src/types';
 
-import {TabBg} from '../../src/navigation/TabBg';
-
 const styles = StyleSheet.create({
   containerBtn: {
     position: 'relative',
@@ -39,7 +37,7 @@ export const TabBarAdvancedButton: React.FC<Props> = (
   {focused},
 ) => (
   <View style={styles.containerBtn} pointerEvents="box-none">
-    <TabBg color={bgColor} style={styles.background} />
+    {/* <TabBg color={bgColor} style={styles.background} /> */}
     <TouchableOpacity style={styles.button} onPress={props.onPress}>
       <Image
         style={{tintColor: focused ? 'white' : 'black', width: 25, height: 25}}

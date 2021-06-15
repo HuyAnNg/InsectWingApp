@@ -12,6 +12,7 @@ export enum SCREEN {
 
   Language = 'Language',
   Profile = 'Profile',
+  showProfile='ShowProfile',
   About = 'About',
   Password='Password',
 
@@ -37,5 +38,6 @@ export type RootStackParamList = {
   [SCREEN.Language]: undefined;
   [SCREEN.About]: undefined;
   [SCREEN.Profile]: undefined;
+  [SCREEN.showProfile]:undefined;
   [SCREEN.Password]: undefined;
 };

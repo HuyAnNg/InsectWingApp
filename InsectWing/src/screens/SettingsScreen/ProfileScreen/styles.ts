@@ -1,4 +1,7 @@
-import {Password} from './../PasswordScreen/passwordChange';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
@@ -9,8 +12,8 @@ export const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   btnView: {
-    width: 60,
-    height: 40,
+    width: wp('20%'),
+    height: hp('6%'),
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#FFC700',
@@ -29,6 +32,11 @@ export const styles = StyleSheet.create({
     backgroundColor: 'black',
     height: 1,
   },
+    line2: {
+    backgroundColor: 'black',
+    height: 1,
+    width: wp('50%'),
+  },
   info: {
     marginHorizontal: 60,
     marginTop: 50,
@@ -38,8 +46,8 @@ export const styles = StyleSheet.create({
     fontWeight: '800',
   },
   img: {
-    width: 100,
-    height: 100,
+    width: wp('26%'),
+    height: hp('17%'),
     alignSelf: 'center',
     marginTop: 20,
   },
@@ -48,18 +56,20 @@ export const styles = StyleSheet.create({
     marginVertical: 4,
   },
   icon: {
-    width: 30,
-    height: 30,
-    marginLeft: 20,
+    width: wp('11%'),
+    height: hp('7%'),
     marginTop: 12,
   },
+  editIcon: {width: 20, height: 20, marginTop: 15, justifyContent: 'flex-end'},
   textLine: {
-    width: 200,
+    width: wp('50%'),
+    //height: hp('7%'),
     marginLeft: 30,
   },
   input: {
     fontSize: 18,
-    height: 40,
+    height: hp('8%'),
+    width: wp('50%'),
   },
   btnSave: {
     fontWeight: 'bold',
@@ -67,15 +77,15 @@ export const styles = StyleSheet.create({
   },
   btnSaveView: {
     alignSelf: 'center',
-    width: 80,
-    height: 40,
+    width: wp('22%'),
+    height: hp('6%'),
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#FFC700',
     borderRadius: 20,
     marginTop: 40,
   },
-  
+  infoText: {fontSize: 20, marginTop: 20},
   container: {
     marginTop: 30,
     alignItems: 'center',

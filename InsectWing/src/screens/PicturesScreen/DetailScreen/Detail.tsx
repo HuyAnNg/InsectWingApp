@@ -11,6 +11,8 @@ const DetailComponent = ({navigation, route}: ScreenProps) => {
   const IMAGE = useMemo(() => {
     return route.params.img;
   }, []);
+  
+  
 
   //function
   const back = useCallback(() => {
