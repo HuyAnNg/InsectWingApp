@@ -8,7 +8,6 @@ import LinearGradient from 'react-native-linear-gradient';
 export type ScreenProps = StackScreenProps<RootStackParamList, SCREEN.Start>;
 
 const startScreenComponent = ({navigation}: ScreenProps) => {
-
   //function
   const signIn = useCallback(() => {
     navigation.navigate(SCREEN.SignIn);

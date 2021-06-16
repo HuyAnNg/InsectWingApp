@@ -2,15 +2,28 @@ import React, {useEffect, useState} from 'react';
 import SplashScreen from 'react-native-splash-screen';
 import auth from '@react-native-firebase/auth';
 import {MainStack, LogInStack} from './src/navigation/rootNavigator';
-import {Text, View} from 'react-native';
-import {NavigationContainer} from '@react-navigation/native';
-//import { authen } from './src/firebase/authProvider';
+import {
+  NavigationContainer,
+} from '@react-navigation/native';
+import {
+  AppearanceProvider,
+} from 'react-native-appearance';
+
 const App = () => {
+  //state
+  const [mode, setMode] = useState(false);
+
+  //effect
   useEffect(() => {
     SplashScreen.hide();
-  }, []);
 
-  // return <LogInStack />;
+    // let eventListener:any = EventRegister.addEventListener('changeTheme', data => {
+    //   setMode(data);
+    // });
+    // return () => {
+    //   EventRegister.removeEventListener(eventListener);
+    // };
+  }, []);
 
   // Set an initializing state whilst Firebase connects
   const [initializing, setInitializing] = useState(true);
@@ -34,19 +47,12 @@ const App = () => {
   }
 
   return (
-    <NavigationContainer>
-      <MainStack />
-    </NavigationContainer>
+    <AppearanceProvider>
+      {/* <NavigationContainer theme={mode ? DefaultTheme : DarkTheme}> */}
+      <NavigationContainer>
+        <MainStack />
+      </NavigationContainer>
+    </AppearanceProvider>
   );
 };
-
 export default App;
-// ok chưa?
-// mấy cái import thì mình add lại hả ằ
-// ừ đây là anh clone lại rồi copy changes qua thôi, copy thiếu thì em thêm nhé,
-// clone lại thì yarrn lại mấy cái config trên firebase cũng phải sửa lại hả <i class="fa fa-anchor"
-// aria-hidden="true"></i>
-// không, sửa nếu code thiếu thôi. cos goole.json rồi đó.
-// thư mục src là copy từ phần nãy chắc là mới nhất rồi
-// còn thư mục android cũng copy rồi
-// chạy thử đi

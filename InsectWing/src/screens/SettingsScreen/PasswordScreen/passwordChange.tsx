@@ -3,6 +3,7 @@ import React, {memo, useCallback, useState} from 'react';
 import {View, Text, TouchableOpacity, TextInput, Image} from 'react-native';
 import {RootStackParamList, SCREEN} from '../../../navigation/ScreenType';
 import {styles} from '../PasswordScreen/styles';
+import auth, {firebase} from '@react-native-firebase/auth';
 
 export type ScreenProps = StackScreenProps<RootStackParamList, SCREEN.Settings>;
 
@@ -10,6 +11,7 @@ const passwordChangeComponent = ({navigation}: ScreenProps) => {
   //state
   const [isVisiblity, setVisiblity] = useState(false);
   const [isVisiblityNew, setVisiblityNew] = useState(false);
+  const [password, setPassword] = useState('');
 
   //function
   const onClickVisiblity = useCallback(() => {
@@ -74,7 +76,7 @@ const passwordChangeComponent = ({navigation}: ScreenProps) => {
             source={require('../../../img/lock.png')}
           />
           <View style={styles.textLine}>
-          <View style={styles.password}>
+            <View style={styles.password}>
               <TextInput
                 style={styles.input}
                 placeholder="New Password"
@@ -103,7 +105,7 @@ const passwordChangeComponent = ({navigation}: ScreenProps) => {
             source={require('../../../img/lock.png')}
           />
           <View style={styles.textLine}>
-          <View style={styles.password}>
+            <View style={styles.password}>
               <TextInput
                 style={styles.input}
                 placeholder="Repeat"

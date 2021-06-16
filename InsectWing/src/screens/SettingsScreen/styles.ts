@@ -1,3 +1,4 @@
+import {useContext} from 'react';
 import {StyleSheet} from 'react-native';
 import {
   widthPercentageToDP as wp,
@@ -15,9 +16,9 @@ export const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   line: {
-    backgroundColor: 'black',
-    height: 1,
+    height: 1.5,
     width: wp('100%'),
+    backgroundColor:'black'
   },
   lineView: {
     flexDirection: 'row',

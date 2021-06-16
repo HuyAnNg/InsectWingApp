@@ -11,6 +11,9 @@ export const styles = StyleSheet.create({
     marginVertical: 10,
     justifyContent: 'space-between',
   },
+  view: {
+    width: wp('20%'),
+    height: hp('6%'),},
   btnView: {
     width: wp('20%'),
     height: hp('6%'),
@@ -46,18 +49,19 @@ export const styles = StyleSheet.create({
     fontWeight: '800',
   },
   img: {
-    width: wp('26%'),
-    height: hp('17%'),
+    width: 100,
+    height: 100,
     alignSelf: 'center',
     marginTop: 20,
+    
   },
   lineView: {
     flexDirection: 'row',
     marginVertical: 4,
   },
   icon: {
-    width: wp('11%'),
-    height: hp('7%'),
+    width: 40,
+    height: 40,
     marginTop: 12,
   },
   editIcon: {width: 20, height: 20, marginTop: 15, justifyContent: 'flex-end'},

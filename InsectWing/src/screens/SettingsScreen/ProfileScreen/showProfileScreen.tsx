@@ -16,8 +16,6 @@ import {
 import {RootStackParamList, SCREEN} from '../../../navigation/ScreenType';
 import {styles} from './styles';
 import database from '@react-native-firebase/database';
-import {Value} from 'react-native-reanimated';
-
 export type ScreenProps = StackScreenProps<RootStackParamList, SCREEN.Settings>;
 
 const showProfileScreenComponent = ({navigation}: ScreenProps) => {
@@ -33,7 +31,7 @@ const showProfileScreenComponent = ({navigation}: ScreenProps) => {
   }, []);
 
   const edit = useCallback(() => {
-    navigation.navigate(SCREEN.Profile);
+    navigation.navigate(SCREEN.editProfile);
   }, []);
 
   const showName = useCallback(() => {
@@ -70,6 +68,7 @@ const showProfileScreenComponent = ({navigation}: ScreenProps) => {
     showAge();
     showEmail();
     showSex();
+   
   }, []);
 
   //render

@@ -56,6 +56,7 @@ const SignUpComponent = ({navigation}: ScreenProps) => {
         },
       ]);
     } 
+    else{checkLogin}
   };
 
   //render
@@ -131,7 +132,8 @@ const SignUpComponent = ({navigation}: ScreenProps) => {
                 placeholder="Repeat"
                 placeholderTextColor="gray"
                 secureTextEntry={true}
-                //value={()=>{}}
+                value={repeat}
+                onChangeText={setRepeat}
               />
               <View style={styles.line} />
             </View>

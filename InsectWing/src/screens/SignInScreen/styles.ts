@@ -23,7 +23,7 @@ export const styles = StyleSheet.create({
     alignSelf: 'center',
     backgroundColor: '#FFC700',
     borderRadius: 20,
-    marginTop: 50,
+    marginTop: 30,
   },
 
   btnEnter: {
@@ -43,7 +43,7 @@ export const styles = StyleSheet.create({
 
   container2: {
     backgroundColor: '#FFC700',
-    marginTop: 50,
+    marginTop: 30,
     marginHorizontal: 20,
     paddingVertical: 20,
     borderRadius: 40,
@@ -74,4 +74,6 @@ export const styles = StyleSheet.create({
     marginLeft: 30,
   },
   input: {fontSize: 22, height: 48, width: '85%',fontFamily: 'Helvetica'},
+  forgot:{alignSelf:'center',marginTop:20},
+  text:{}
 });

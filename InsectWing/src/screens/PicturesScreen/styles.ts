@@ -40,15 +40,13 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: '#FFC700',
     borderRadius: 20,
-    // marginBottom: 150,
-    // marginLeft: 200,
+    
   },
   containBtn: {
     flexDirection: 'row',
     height: hp('10%'),
     justifyContent: 'space-evenly',
     marginTop: 60,
-    backgroundColor:'blue'
   },
   btn: {
     textAlign: 'center',

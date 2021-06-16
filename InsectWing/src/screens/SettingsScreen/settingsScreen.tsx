@@ -1,5 +1,5 @@
 import {StackScreenProps} from '@react-navigation/stack';
-import React, {memo, useCallback, useState} from 'react';
+import React, {memo, useCallback, useState, useContext} from 'react';
 import {View, Text, Switch, Image, Modal} from 'react-native';
 import {ScrollView, TouchableOpacity} from 'react-native-gesture-handler';
 import LinearGradient from 'react-native-linear-gradient';
@@ -11,9 +11,7 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 import auth from '@react-native-firebase/auth';
-// export interface ScreenProps {
-//   navigation: BottomTabNavigationProp<RootStackParamList, SCREEN.Camera>;
-// }
+import {EventRegister} from 'react-native-event-listeners';
 
 export type ScreenProps = StackScreenProps<RootStackParamList, SCREEN.Settings>;
 
@@ -22,13 +20,7 @@ const SettingsComponent = ({navigation}: ScreenProps) => {
   const [isModalVisible, setisModalVisible] = useState(false);
 
   //switch
-  const [switchValue, setSwitchValue] = useState(false);
-
-  const toggleSwitch = (value: any) => {
-    //To handle switch toggle
-    setSwitchValue(value);
-    //State changes according to switch
-  };
+  const [mode, setMode] = useState(true);
 
   //function
   const changeLanguage = useCallback(() => {
@@ -42,8 +34,8 @@ const SettingsComponent = ({navigation}: ScreenProps) => {
   }, []);
   const onLogOut = useCallback(() => {
     auth()
-  .signOut()
-  .then(() => console.log('User signed out!'));
+      .signOut()
+      .then(() => console.log('User signed out!'));
     //navigation.navigate(SCREEN.Start);
     onCloseModal();
   }, []);
@@ -64,30 +56,19 @@ const SettingsComponent = ({navigation}: ScreenProps) => {
   return (
     <ScrollView style={styles.headerView}>
       <View>
-        <Text style={styles.header}>Settings</Text>
+        <Text
+          //style={styles.header}
+          style={styles.header}>
+          Settings
+        </Text>
       </View>
       <View style={styles.line} />
 
-      <LinearGradient
-        colors={['#D7D7D7', '#FFFFFF', '#D7D7D7']}
-        style={styles.lineView}>
-        {/* <View style={styles.itemView}> */}
-        <Text style={styles.text}>Notification</Text>
-        <View style={{height: hp('11.5%')}} />
-        <Switch
-          trackColor={{false: '#D7D7D7', true: '#B9CDC3'}}
-          style={styles.switch}
-          onValueChange={toggleSwitch}
-          value={switchValue}
-        />
-        {/* </View> */}
-      </LinearGradient>
-
-      <TouchableOpacity onPress={changeLanguage}>
+      <TouchableOpacity onPress={changeAbout}>
         <LinearGradient
           colors={['#D7D7D7', '#FFFFFF', '#D7D7D7']}
           style={styles.lineView}>
-          <Text style={styles.text}>Language</Text>
+          <Text style={styles.text}>About</Text>
           <Image
             style={styles.rectangle}
             source={require('../../img/bleach.png')}
@@ -107,11 +88,12 @@ const SettingsComponent = ({navigation}: ScreenProps) => {
         </LinearGradient>
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={changeAbout}>
+
+      <TouchableOpacity onPress={changeLanguage}>
         <LinearGradient
           colors={['#D7D7D7', '#FFFFFF', '#D7D7D7']}
           style={styles.lineView}>
-          <Text style={styles.text}>About</Text>
+          <Text style={styles.text}>Language</Text>
           <Image
             style={styles.rectangle}
             source={require('../../img/bleach.png')}
@@ -130,6 +112,23 @@ const SettingsComponent = ({navigation}: ScreenProps) => {
           />
         </LinearGradient>
       </TouchableOpacity>
+
+      
+      <LinearGradient
+        colors={['#D7D7D7', '#FFFFFF', '#D7D7D7']}
+        style={styles.lineView}>
+        <Text style={styles.text}>Dark mode (not yet)</Text>
+        <View style={{height: hp('11.5%')}} />
+        <Switch
+          trackColor={{false: '#D7D7D7', true: '#B9CDC3'}}
+          style={styles.switch}
+          onValueChange={() => {
+            setMode(value => !value);
+            EventRegister.emit('changeTheme', mode);
+          }}
+          value={mode}
+        />
+      </LinearGradient>
 
       <TouchableOpacity onPress={changeModalVisible}>
         <LinearGradient

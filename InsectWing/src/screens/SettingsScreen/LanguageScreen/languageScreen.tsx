@@ -4,9 +4,7 @@ import {
   View,
   Text,
   TouchableOpacity,
-  StyleSheet,
   Image,
-  TextInput,
 } from 'react-native';
 import {styles} from '../../SettingsScreen/LanguageScreen/styles';
 import {StackScreenProps} from '@react-navigation/stack';
@@ -15,6 +13,8 @@ import {RootStackParamList, SCREEN} from '../../../navigation/ScreenType';
 export type ScreenProps = StackScreenProps<RootStackParamList, SCREEN.Settings>;
 
 const LanguageComponent = ({navigation}: ScreenProps) => {
+  //state
+
   //function
   const back = useCallback(() => {
     navigation.navigate(SCREEN.Settings);

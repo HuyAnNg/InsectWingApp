@@ -1,33 +1,14 @@
-import React, {memo, useCallback, useState} from 'react';
-import {
-  View,
-  FlatList,
-  SafeAreaView,
-  Image,
-  ListRenderItemInfo,
-  Text,
-} from 'react-native';
+import React, {memo, useEffect, useState} from 'react';
+import {View, SafeAreaView, Image, Text} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {styles} from './styles';
 import {RootStackParamList, SCREEN} from '../../navigation/ScreenType';
-import {DATA} from '../PicturesScreen/constants';
-import {image} from '../../model/Item';
 import {StackScreenProps} from '@react-navigation/stack';
 import ImagePicker from 'react-native-image-crop-picker';
 
 type ScreenProps = StackScreenProps<RootStackParamList, SCREEN.Pictures>;
 
-// const Item = ({img}: {img: image}) => {
-//   //function
-//   return (
-//     <View style={styles.item}>
-//       <Image style={styles.title} source={img.img} />
-//     </View>
-//   );
-// };
-
 const PicturesComponent = ({navigation}: ScreenProps) => {
-  //const [img, setImg] = useState('');
   //state
   const [pic, setPic] = useState('../../img/demouser.png');
 
@@ -41,22 +22,6 @@ const PicturesComponent = ({navigation}: ScreenProps) => {
     );
   };
 
-  // const keyExtractor = useCallback(item => {
-  //   return item.id;
-  // }, []);
-
-  // const renderItem = useCallback(({item}: ListRenderItemInfo<image>) => {
-  //   const onNavigateDetail = () => {
-  //     navigation.navigate(SCREEN.Detail, item);
-  //   };
-
-  //   return (
-  //     <TouchableOpacity onPress={onNavigateDetail}>
-  //       <Item img={item} />
-  //     </TouchableOpacity>
-  //   );
-  // }, []);
-
   const col = 3;
   return (
     <SafeAreaView style={styles.container}>
@@ -67,12 +32,6 @@ const PicturesComponent = ({navigation}: ScreenProps) => {
         <View style={{width: 60}} />
       </View>
 
-      {/* <FlatList
-        data={DATA}
-        renderItem={renderItem}
-        keyExtractor={keyExtractor}
-        numColumns={col}
-      /> */}
       <Image source={{uri: pic}} style={styles.img} />
       <View style={styles.containBtn}>
         <TouchableOpacity onPress={choosePicFromLib}>

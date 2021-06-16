@@ -65,6 +65,7 @@ const ProfileComponent = ({navigation}: ScreenProps) => {
           text: 'OK',
         },
       ]);
+      navigation.navigate(SCREEN.showProfile);
     }
   };
 
@@ -73,13 +74,9 @@ const ProfileComponent = ({navigation}: ScreenProps) => {
     <View>
       <ScrollView>
         <View style={styles.headerView}>
-          <TouchableOpacity onPress={back}>
-            <View style={styles.btnView}>
-              <Text style={styles.btnBack}>Back</Text>
-            </View>
-          </TouchableOpacity>
+          <View style={styles.view}></View>
           <Text style={styles.header}>Edit</Text>
-          <View style={{width: wp('20%')}} />
+          <View style={styles.view} />
         </View>
         <View style={styles.line} />
         <Image
@@ -171,4 +168,4 @@ const ProfileComponent = ({navigation}: ScreenProps) => {
   );
 };
 
-export const Profile = memo(ProfileComponent);
+export const editProfile = memo(ProfileComponent);

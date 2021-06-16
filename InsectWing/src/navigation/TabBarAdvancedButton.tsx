@@ -40,7 +40,7 @@ export const TabBarAdvancedButton: React.FC<Props> = (
     {/* <TabBg color={bgColor} style={styles.background} /> */}
     <TouchableOpacity style={styles.button} onPress={props.onPress}>
       <Image
-        style={{tintColor: focused ? 'white' : 'black', width: 25, height: 25}}
+        style={{tintColor: focused ? 'white' : 'black', width: 40, height: 40}}
         source={require('../img/camera.png')}
       />
     </TouchableOpacity>

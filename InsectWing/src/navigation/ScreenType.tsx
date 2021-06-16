@@ -12,14 +12,14 @@ export enum SCREEN {
 
   Language = 'Language',
   Profile = 'Profile',
+  editProfile='editProfile',
   showProfile='ShowProfile',
   About = 'About',
   Password='Password',
 
   Result = 'Result',
 
-  Detail = 'Detail',
-  Edit = 'Edit',
+  
 }
 
 export type RootStackParamList = {
@@ -29,9 +29,6 @@ export type RootStackParamList = {
   [SCREEN.Settings]: undefined;
   [SCREEN.Pictures]: undefined;
 
-  [SCREEN.Detail]: {  id: string;
-    img: string;}
-
   [SCREEN.SignIn]: undefined;
   [SCREEN.SignUp]: undefined;
   
@@ -39,5 +36,6 @@ export type RootStackParamList = {
   [SCREEN.About]: undefined;
   [SCREEN.Profile]: undefined;
   [SCREEN.showProfile]:undefined;
+  [SCREEN.editProfile]:undefined;
   [SCREEN.Password]: undefined;
 };
